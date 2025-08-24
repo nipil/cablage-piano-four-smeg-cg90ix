@@ -1,0 +1,19 @@
+graph {
+    # rankdir = "LR"; # LR/TD
+    # newrank = true;
+    # rank = "same"; # same/source/max/min/sink
+    
+    ALIM_PHASE -- BORNIER_3 -- BORNIER_2 -- BORNIER_1;
+    BORNIER_4 -- BORNIER_5 -- ALIM_NEUTRE;
+    
+    subgraph cluster_PLAQUES {
+        style = filled;
+        color = "orange";
+        {NOIR_T ROUGE_T GRIS_T} -- PLAQUES -- {BLEU1_T BLEU2_T BLEU3_T};
+    }
+    
+    BORNIER_2 -- NOIR_T;
+    BORNIER_3 -- {ROUGE_T GRIS_T};
+    BLEU1_T -- BORNIER_4;
+    {BLEU2_T BLEU3_T} -- BORNIER_5;
+}

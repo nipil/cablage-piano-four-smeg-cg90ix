@@ -1,0 +1,276 @@
+graph {
+    # rankdir = "LR"; # LR/TD
+    # newrank = true;
+    # rank = "same"; # same/source/max/min/sink
+    subgraph cluster_SELECTEUR_1 {
+        style = filled;
+        color = "violet";
+        SEL_1A -- SEL_1 [style = dotted; dir = none; label = "lampes\nintérieures";];
+    }
+    
+    subgraph cluster_SELECTEUR_2 {
+        style = filled;
+        color = "violet";
+        SEL_2A -- SEL_2 [style = dotted; label = "ventilateurs\narrières";];
+    }
+    
+    subgraph cluster_SELECTEUR_3 {
+        style = filled;
+        color = "violet";
+        SEL_3A -- SEL_3 [style = dotted; label = "résistance\nsup périph";];
+    }
+    
+    subgraph cluster_SELECTEUR_4 {
+        style = filled;
+        color = "violet";
+        SEL_4A -- SEL_4 [style = dotted; label = "résistance\ninférieure";];
+    }
+    
+    subgraph cluster_SELECTEUR_5 {
+        style = filled;
+        color = "violet";
+        SEL_5A -- SEL_5 [style = dotted; label = "résistance\nsup grill";];
+    }
+    
+    subgraph cluster_SELECTEUR_6 {
+        style = filled;
+        color = "violet";
+        SEL_6A -- SEL_6 [style = dotted; label = "tourne\nbroche";];
+    }
+    
+    subgraph cluster_SELECTEUR_7 {
+        style = filled;
+        color = "violet";
+        SEL_7A -- SEL_7 [style = dotted; label = "résistances\narrières\nvia\nPCB RL";];
+    }
+    
+    subgraph cluster_SELECTEUR_8 {
+        style = filled;
+        color = "violet";
+        SEL_8 -- SEL_8A [style = dotted; label = "inutilisé";];
+    }
+    
+    subgraph cluster_SELECTEUR_9 {
+        style = filled;
+        color = "violet";
+        SEL_9 -- SEL_9A [style = dotted; label = "lampe\navant\ntémoin\nchauffe";];
+    }
+    
+    ALIM_PHASE -- BORNIER_3 -- BORNIER_2 -- BORNIER_1;
+    BORNIER_4 -- BORNIER_5 -- ALIM_NEUTRE;
+    
+    BORNIER_1 -- {FIL_A FIL_B};
+    FIL_I -- BORNIER_4;
+    FIL_H -- BORNIER_5;
+    
+    subgraph cluster_R_SUP {
+        style = filled;
+        color = "orange";
+        R_SUP_1 -- R_SUP_2 [dir = none; label = "chauffe";];
+    }
+    
+    subgraph cluster_R_GRILL {
+        style = filled;
+        color = "orange";
+        R_GRILL_1 -- R_GRILL_2 [dir = none; label = "chauffe";];
+    }
+    
+    FIL_S -- R_SUP_1;
+    R_SUP_2 -- FIL_J;
+    FIL_R -- R_GRILL_1;
+    R_GRILL_2 -- FIL_J;
+    
+    subgraph cluster_R_INF {
+        style = filled;
+        color = "orange";
+        R_INF_1 -- R_INF_2 [dir = none; label = "chauffe";];
+    }
+    FIL_Q -- R_INF_1;
+    R_INF_2 -- FIL_J;
+    
+    subgraph cluster_R_ARR_D {
+        style = filled;
+        color = "orange";
+        R_ARR_D_1 -- R_ARR_D_2 [dir = none; label = "chauffe";];
+    }
+    
+    FIL_E -- R_ARR_D_1;
+    R_ARR_D_2 -- FIL_G;
+    
+    subgraph cluster_R_ARR_G {
+        style = filled;
+        color = "orange";
+        R_ARR_G_1 -- R_ARR_G_2 [dir = none; label = "chauffe";];
+    }
+    
+    FIL_D -- R_ARR_G_1;
+    R_ARR_G_2 -- FIL_F;
+    
+    subgraph cluster_VENT_ARR_D {
+        style = filled;
+        color = "aqua";
+        VENT_ARR_D_1 -- VENT_ARR_D_2 [dir = none; label = "souffle";];
+    }
+    
+    FIL_M -- VENT_ARR_D_1;
+    VENT_ARR_D_2 -- FIL_K;
+    
+    subgraph cluster_VENT_ARR_G {
+        style = filled;
+        color = "aqua";
+        VENT_ARR_G_1 -- VENT_ARR_G_2 [dir = none; label = "souffle";];
+    }
+    
+    FIL_M -- VENT_ARR_G_1;
+    VENT_ARR_G_2 -- FIL_K;
+    
+    subgraph cluster_VENT_SUP {
+        style = filled;
+        color = "aqua";
+        VENT_SUP_1 -- VENT_SUP_2 [dir = none; label = "souffle";];
+    }
+    
+    FIL_C -- VENT_SUP_1;
+    VENT_SUP_2 -- FIL_I;
+    
+    subgraph cluster_LAMP_ARR_D {
+        style = filled;
+        color = "yellow";
+        LAMP_ARR_D_1 -- LAMP_ARR_D_2 [dir = none; label = "éclaire";];
+    }
+    
+    FIL_L -- LAMP_ARR_D_1;
+    LAMP_ARR_D_2 -- FIL_K;
+    
+    subgraph cluster_LAMP_ARR_G {
+        style = filled;
+        color = "yellow";
+        LAMP_ARR_G_1 -- LAMP_ARR_G_2 [dir = none; label = "éclaire";];
+    }
+    
+    FIL_L -- LAMP_ARR_G_1;
+    LAMP_ARR_G_2 -- FIL_K;
+    
+    subgraph cluster_LAMP_AV {
+        style = filled;
+        color = "yellow";
+        LAMP_AV_G_1 -- LAMP_AV_G_2 [dir = none; label = "éclaire\ndurant\nchauffe";];
+    }
+    
+    FIL_U -- LAMP_AV_G_1;
+    LAMP_AV_G_2 -- FIL_T;
+    
+    subgraph cluster_BROCHE {
+        style = filled;
+        color = "yellow";
+        BROCHE_1 -- BROCHE_2 [dir = none; label = "tourne\nsi grill";];
+    }
+    
+    FIL_X -- BROCHE_1;
+    BROCHE_2 -- FIL_K;
+    
+    subgraph cluster_CT_PORTE {
+        style = filled;
+        color = "violet";
+        CT_PORTE_1 -- CT_PORTE_2 [style = dotted; dir = none; label = "fermé\nquand\nporte\nouverte";];
+    }
+    
+    FIL_D -- CT_PORTE_1;
+    CT_PORTE_2 -- FIL_L;
+    
+    subgraph cluster_CT_THERMOSTAT_REGLABLE {
+        style = filled;
+        color = "violet";
+        THERMOSTAT_1 -- THERMOSTAT_2 [style = dotted; dir = none; label = "fermé\nsi la T°\nest sup à\nconsigne";];
+    }
+    
+    FIL_J -- THERMOSTAT_1;
+    THERMOSTAT_2 -- FIL_K;
+    
+    subgraph cluster_CT_THERMOSTAT_SPST {
+        style = filled;
+        color = "lightgreen";
+        CT_THER_S_1 -- CT_THER_S_2 [style = dotted; dir = none; label = "fermé\nsi la T°\nest sup à\nla limite";];
+    }
+    
+    FIL_B -- CT_THER_S_1;
+    CT_THER_S_2 -- FIL_C;
+    
+    subgraph cluster_CT_THERMOSTAT_DPST_1 {
+        style = filled;
+        color = "lightgreen";
+        CT_THER_D_P1 -- CT_THER_D_1 [style = dotted; dir = none; label = "fermé\nsi la T°\nest inf à\nla limite";];
+    }
+    
+    subgraph cluster_CT_THERMOSTAT_DPST_2 {
+        style = filled;
+        color = "lightgreen";
+        CT_THER_D_P2 -- CT_THER_D_2 [style = dotted; dir = none; label = "fermé\nsi la T°\nest inf à\nla limite";];
+    }
+    
+    FIL_A -- CT_THER_D_P1;
+    CT_THER_D_1 -- FIL_D;
+    FIL_B -- CT_THER_D_P2;
+    CT_THER_D_2 -- FIL_E;
+    
+    subgraph cluster_RELAIS {
+        style = filled;
+        color = "lightgrey";
+        PCB_RL_L -- PCB_RL_N [dir = none; label = "alimenté";];
+    }
+    
+    subgraph cluster_RELAIS_1 {
+        style = filled;
+        color = "lightgrey";
+        PCB_RL_1 -- PCB_RL_1A [style = dotted; dir = none; label = "fermé si\nPCB_RL\nL/N alim";];
+    }
+    
+    subgraph cluster_RELAIS_2 {
+        style = filled;
+        color = "lightgrey";
+        PCB_RL_2 -- PCB_RL_2A [style = dotted; dir = none; label = "fermé si\nPCB_RL\nL/N alim";];
+    }
+    
+    FIL_G -- PCB_RL_1;
+    PCB_RL_1A -- FIL_I;
+    FIL_F -- PCB_RL_2;
+    PCB_RL_2A -- FIL_H;
+    FIL_P -- PCB_RL_L;
+    PCB_RL_N -- FIL_J;
+    
+    subgraph cluster_PROG_ALIM {
+        style = filled;
+        color = "lightgrey";
+        PCB_PG_L -- PCB_PG_N [dir = none; label = "alimenté";];
+    }
+    
+    subgraph cluster_PROG_RELAIS {
+        style = filled;
+        color = "violet";
+        PCB_PG_1 -- PCB_PG_1A [style = dotted; dir = none; label = "fermé si\nprog non\ndésactivé";];
+    }
+    
+    FIL_K -- PCB_PG_1;
+    PCB_PG_1A -- FIL_I;
+    FIL_D -- PCB_PG_L;
+    PCB_PG_N -- FIL_I;
+    
+    
+    SEL_1A -- SEL_2A;
+    SEL_3A -- {SEL_4A SEL_5A SEL_6A SEL_7A};
+    SEL_8A -- SEL_9A;
+    
+    FIL_D -- SEL_1A;
+    FIL_D -- SEL_3A;
+    SEL_9A -- FIL_J;
+    
+    SEL_6A -- FIL_U;
+    SEL_1 -- FIL_L;
+    SEL_2 -- FIL_M;
+    SEL_3 -- FIL_S;
+    SEL_4 -- FIL_Q;
+    SEL_5 -- FIL_R;
+    SEL_6 -- FIL_X;
+    SEL_7 -- FIL_P;
+    FIL_T -- SEL_9;
+}

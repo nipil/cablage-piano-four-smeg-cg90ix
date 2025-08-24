@@ -1,0 +1,15 @@
+graph {
+    rankdir = "LR";
+    
+    ALIM_TERRE -- BORNIER_6;
+    
+    BORNIER_6 -- VERT_T -- PLAQUES;
+    BORNIER_6 -- FIL_T1;
+    
+    FIL_T1 -- R_SUP_TERRE;
+    FIL_T1 -- VENT_ARR_D_TERRE;
+    FIL_T1 -- VENT_ARR_G_TERRE;
+    FIL_T1 -- LAMP_ARR_D_TERRE;
+    FIL_T1 -- LAMP_ARR_G_TERRE;
+    FIL_T1 -- BROCHE_TERRE;
+}

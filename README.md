@@ -171,8 +171,6 @@ Fonctionnement des plaques induction (**INFO**: non étudié, car pas eu besoin 
 
       ![](photos/14-vue-interieure-sup-four.jpg)
 
-
-
 - Lampes
   - intérieures
     - support : google "Oven Lamp LH500 NOVA"
@@ -211,6 +209,10 @@ Fonctionnement des plaques induction (**INFO**: non étudié, car pas eu besoin 
 
     ![](photos/12-carte-relais-resistances-arriere-verso.jpg)
 
+  - Schémas électronique
+
+    ![](images/carte_relais.svg)
+
 
 - Carte électronique "Programmateur / horloge"
 
@@ -225,7 +227,6 @@ Fonctionnement des plaques induction (**INFO**: non étudié, car pas eu besoin 
   - Raccordement
 
     ![](photos/19-carte-programmateur-recto-connexions.jpg)
-
 
   - Cosses coudées inversées ... (côté relais = pas une bonne idée, car moins de surface de contact ?)
 
